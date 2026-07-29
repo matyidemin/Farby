@@ -90,7 +90,7 @@ Bilingual SK/HU toggle with localStorage persistence, per standard.
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
@@ -197,9 +197,42 @@ Bilingual SK/HU toggle with localStorage persistence, per standard.
   }
 
   .burger{display:none;}
+  .mobile-panel{
+    position:fixed;inset:0;top:0;background:var(--paper);z-index:600;
+    display:flex;flex-direction:column;
+    transform:translateY(-100%);transition:transform .3s ease;
+    padding:20px 24px 30px;overflow-y:auto;
+  }
+  .mobile-panel.show{transform:translateY(0);}
+  .mobile-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px;}
+  .mobile-panel-close{font-size:24px;padding:6px;}
+  .mobile-panel nav{display:flex;flex-direction:column;gap:4px;margin-bottom:30px;}
+  .mobile-panel nav a{
+    font-family:'Fraunces',serif;font-size:24px;font-weight:600;
+    padding:14px 4px;border-bottom:1px solid var(--line);
+  }
+  .mobile-panel-actions{display:flex;flex-direction:column;gap:12px;margin-top:auto;}
+  .mobile-panel-actions .btn{justify-content:center;padding:16px;font-size:15px;}
+  .mobile-panel .lang-toggle{align-self:flex-start;margin-bottom:10px;}
+  .mobile-panel .lang-toggle button{padding:9px 18px;font-size:13px;}
+  body.menu-open{overflow:hidden;}
+
   @media(max-width:920px){
     .navlinks{display:none;}
-    .burger{display:block;font-size:22px;}
+    .burger{display:flex;align-items:center;justify-content:center;font-size:20px;width:42px;height:42px;}
+  }
+  @media(min-width:921px){
+    .mobile-panel{display:none;}
+  }
+  @media(max-width:560px){
+    .nav{padding:14px 18px;gap:10px;}
+    .nav-actions{gap:8px;}
+    .nav-actions .btn-primary{padding:10px 14px;font-size:13px;}
+    .nav-actions .btn-primary span{white-space:nowrap;}
+    .nav-actions > .lang-toggle{display:none;}
+  }
+  @media(max-width:380px){
+    .nav-actions .btn-primary{display:none;}
   }
 
   /* ============ HERO ============ */
@@ -495,6 +528,45 @@ Bilingual SK/HU toggle with localStorage persistence, per standard.
   html[data-lang="hu"] h3[data-hu],
   html[data-lang="hu"] h4[data-hu]{display:block;}
   html[data-lang="hu"] .inline-hu{display:inline;}
+
+  /* ============ MOBILE POLISH ============ */
+  @media(max-width:700px){
+    .hero{padding:36px 0 28px;}
+    .hero-actions{flex-direction:column;align-items:stretch;}
+    .hero-actions .btn{justify-content:center;width:100%;}
+    .hero-trust{flex-wrap:wrap;}
+
+    .section{padding:64px 0;}
+    .section-tight{padding:48px 0;}
+
+    /* horizontally scrollable category chips, app-like on touch */
+    .shop-nav{
+      flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+      scroll-snap-type:x proximity;padding-bottom:16px;margin-bottom:28px;
+      -ms-overflow-style:none;scrollbar-width:none;
+    }
+    .shop-nav::-webkit-scrollbar{display:none;}
+    .chip-filter{flex-shrink:0;scroll-snap-align:start;min-height:44px;}
+
+    .product-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+    .card-body{padding:13px 14px 14px;gap:6px;}
+    .card-body h3{font-size:14px;}
+    .add-btn{width:40px;height:40px;font-size:20px;}
+
+    .cart-drawer{width:100%;max-width:100%;}
+    .qty-ctrl button{width:32px;height:32px;font-size:15px;}
+    .cart-remove{padding:6px 0;display:inline-block;}
+
+    .cta-strip .wrap{padding-left:20px;padding-right:20px;}
+    .loc-info{padding:28px 22px;}
+    .why-item{padding:28px 22px;}
+
+    .floating-cart{padding:12px 18px;font-size:12.5px;}
+  }
+  @media(max-width:420px){
+    .product-grid{grid-template-columns:1fr 1fr;gap:10px;}
+    .swatch-top{height:90px;}
+  }
 </style>
 </head>
 <body>
@@ -528,9 +600,39 @@ Bilingual SK/HU toggle with localStorage persistence, per standard.
       <a href="tel:+421908782311" class="btn btn-primary" style="padding:10px 18px;">
         <span data-sk>Zavolať</span><span data-hu>Hívás</span>
       </a>
+      <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-head">
+    <a href="#top" class="brand">
+      <span class="chip-stack" aria-hidden="true">
+        <span style="background:var(--sw-terracotta);transform:rotate(-8deg);"></span>
+        <span style="background:var(--sw-dustyblue);transform:rotate(4deg);"></span>
+        <span style="background:var(--sw-mustard);transform:rotate(-2deg);"></span>
+      </span>
+      Kolorcentrum
+    </a>
+    <button class="mobile-panel-close" id="mobilePanelClose" aria-label="Close menu">✕</button>
+  </div>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <button id="btn-sk-m" class="active">SK</button>
+    <button id="btn-hu-m">HU</button>
+  </div>
+  <nav>
+    <a href="#ponuka" data-sk>Ponuka</a><a href="#ponuka" data-hu>Termékek</a>
+    <a href="#miesanie" data-sk>Miešanie farieb</a><a href="#miesanie" data-hu>Színkeverés</a>
+    <a href="#preco-my" data-sk>Prečo my</a><a href="#preco-my" data-hu>Miért mi</a>
+    <a href="#recenzie" data-sk>Recenzie</a><a href="#recenzie" data-hu>Vélemények</a>
+    <a href="#kontakt" data-sk>Kontakt</a><a href="#kontakt" data-hu>Kapcsolat</a>
+  </nav>
+  <div class="mobile-panel-actions">
+    <a href="tel:+421908782311" class="btn btn-primary"><span data-sk>Zavolať 0908 782 311</span><span data-hu>Hívás: 0908 782 311</span></a>
+    <a href="https://wa.me/421908782311" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
+  </div>
+</div>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
@@ -921,6 +1023,8 @@ function setLang(l){
   localStorage.setItem('kc_lang', l);
   document.getElementById('btn-sk').classList.toggle('active', l==='sk');
   document.getElementById('btn-hu').classList.toggle('active', l==='hu');
+  document.getElementById('btn-sk-m').classList.toggle('active', l==='sk');
+  document.getElementById('btn-hu-m').classList.toggle('active', l==='hu');
   renderFilters();
   renderGrid();
   renderCart();
@@ -928,6 +1032,26 @@ function setLang(l){
 }
 document.getElementById('btn-sk').addEventListener('click', ()=>setLang('sk'));
 document.getElementById('btn-hu').addEventListener('click', ()=>setLang('hu'));
+document.getElementById('btn-sk-m').addEventListener('click', ()=>setLang('sk'));
+document.getElementById('btn-hu-m').addEventListener('click', ()=>setLang('hu'));
+
+/* ================= MOBILE MENU ================= */
+const burgerBtn = document.getElementById('burgerBtn');
+const mobilePanel = document.getElementById('mobilePanel');
+const mobilePanelClose = document.getElementById('mobilePanelClose');
+function openMobileMenu(){
+  mobilePanel.classList.add('show');
+  document.body.classList.add('menu-open');
+  burgerBtn.setAttribute('aria-expanded','true');
+}
+function closeMobileMenu(){
+  mobilePanel.classList.remove('show');
+  document.body.classList.remove('menu-open');
+  burgerBtn.setAttribute('aria-expanded','false');
+}
+burgerBtn.addEventListener('click', openMobileMenu);
+mobilePanelClose.addEventListener('click', closeMobileMenu);
+mobilePanel.querySelectorAll('nav a').forEach(a=>a.addEventListener('click', closeMobileMenu));
 
 /* ================= SHOP RENDER ================= */
 function renderFilters(){
