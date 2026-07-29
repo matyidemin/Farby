@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="sk" data-lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolorcentrum Komárno — Farby, laky a maliarske potreby | Miešanie na počkanie</title>
+<meta name="description" content="Kolorcentrum Komárno — interiérové a fasádne farby, laky, omietky, tapety a náradie. Profesionálne miešanie presného odtieňa na počkanie. Priateľstva 3452, Komárno.">
+
+<!--
+====================================================================
+BUILD NOTES — read before publishing
+====================================================================
+UNSOLICITED CONCEPT DEMO built by DM Web for Kolorcentrum, Komárno.
+This is not the business's real website — Kolorcentrum currently has
+NO independent website (confirmed via web search: only Google Maps,
+Facebook page, and third-party directory listings such as Cylex,
+ModaModa, Orlyobchodu, Zlatá Firma, Farlesk exist — no owned domain
+was found).
+
+CONFIRMED REAL DATA (Google Maps / Places, cross-checked with 2+
+independent directory sources):
+- Name: Kolorcentrum (Farby laky Kolorcentrum / Kolorcentrum s.r.o.)
+- Category: Paint store / obchod s farbami
+- Address: Priateľstva 3452, Komárno, 945 01
+- Phone: 0908 782 311 (used throughout as the only verified contact)
+- Rating: 4.6 out of 5 from 173 Google reviews
+- Hours: Mon–Fri 7:30–17:00, Sat 8:00–12:00, Sun closed
+- Product range (confirmed by 2+ independent directory descriptions):
+  interior/exterior/facade paints, metal & wood coatings, plasters,
+  wallpaper, hand tools, household chemicals/cleaning products,
+  professional colour mixing to sample/colour card, on-site parking.
+- Testimonial lines are paraphrased/trimmed from real public Google
+  reviews (customer service, wide range, fair prices, expert advice).
+
+PLACEHOLDER / NOT CONFIRMED — replace before going live:
+- All product prices ("od X €") are ILLUSTRATIVE market-typical
+  estimates, not Kolorcentrum's real price list.
+- No confirmed email address was found anywhere for this business —
+  the site intentionally routes every enquiry to phone / WhatsApp
+  only. Add a real email + swap the mailto links if one exists.
+- Brand/manufacturer names are NOT stated anywhere, so none are
+  named or logo'd on the site — copy says "renomovaných výrobcov"
+  generically. Replace with real supplier logos once confirmed.
+- No real product photography exists for this business online, so
+  the design deliberately uses a paint-swatch/colour-chip visual
+  system (the store's actual product) instead of stock photography.
+  Swap in real shelf/store photos in the marked <!-- PHOTO --> spots
+  if the owner provides them.
+- "Objednávka" is a WhatsApp/phone ENQUIRY cart, not a live checkout
+  with real inventory or payment — appropriate for a made-to-order
+  colour-mixing business, but flag clearly to the owner as the model.
+
+Bilingual SK/HU toggle with localStorage persistence, per standard.
+====================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Jost:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#F7F4EC;
+    --paper-2:#F1ECE0;
+    --ink:#22201C;
+    --ink-soft:#5B564C;
+    --line:#E1DACB;
+    --teal:#1F6F6B;
+    --teal-dark:#154B48;
+    --teal-tint:#E4EEEC;
+    --white:#FFFFFF;
+
+    --sw-terracotta:#C1673D;
+    --sw-sage:#8A9A7E;
+    --sw-mustard:#D9A441;
+    --sw-dustyblue:#6C8CA8;
+    --sw-charcoal:#3B3A36;
+    --sw-blush:#D6A79E;
+    --sw-forest:#4B6B4E;
+    --sw-stone:#B7AC98;
+    --sw-rust:#A8471F;
+    --sw-cream:#EDE3CF;
+    --sw-plum:#6C4B5E;
+    --sw-ochre:#C99A3E;
+
+    --radius:2px;
+    --shadow-sm:0 1px 2px rgba(34,32,28,0.06);
+    --shadow-md:0 8px 24px rgba(34,32,28,0.10);
+    --shadow-lg:0 24px 60px rgba(34,32,28,0.16);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Jost',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.font-display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+  .mono{font-family:'Space Mono',monospace;}
+
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  ul{list-style:none;}
+
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px;}
+  @media(max-width:700px){.wrap{padding:0 20px;}}
+
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal-dark);
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";width:18px;height:2px;background:var(--teal);display:inline-block;
+  }
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ============ NAV ============ */
+  header.site{
+    position:sticky;top:0;z-index:500;
+    background:rgba(247,244,236,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 32px;max-width:1280px;margin:0 auto;
+    gap:20px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Fraunces',serif;font-weight:700;font-size:21px;
+    letter-spacing:-0.01em;
+  }
+  .brand .chip-stack{display:flex;}
+  .brand .chip-stack span{
+    width:12px;height:22px;border-radius:1px;
+    margin-left:-4px;border:1.5px solid var(--paper);
+  }
+  .brand .chip-stack span:first-child{margin-left:0;}
+  .navlinks{display:flex;align-items:center;gap:30px;font-size:14.5px;}
+  .navlinks a{position:relative;padding:4px 0;color:var(--ink);}
+  .navlinks a::after{
+    content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+    background:var(--teal);transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+
+  .lang-toggle{
+    display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    font-family:'Space Mono',monospace;font-size:11.5px;
+  }
+  .lang-toggle button{padding:6px 12px;background:var(--paper);}
+  .lang-toggle button.active{background:var(--ink);color:var(--paper);}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;font-size:14px;font-weight:600;
+    border-radius:1px;transition:all .2s ease;white-space:nowrap;
+  }
+  .btn-primary{background:var(--teal);color:var(--white);}
+  .btn-primary:hover{background:var(--teal-dark);transform:translateY(-1px);box-shadow:var(--shadow-md);}
+  .btn-outline{border:1.5px solid var(--ink);color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-ghost{color:var(--ink);border-bottom:1.5px solid var(--ink);padding:4px 0;border-radius:0;}
+
+  .cart-btn{position:relative;padding:10px;border:1.5px solid var(--ink);border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;}
+  .cart-count{
+    position:absolute;top:-6px;right:-6px;background:var(--sw-rust);color:#fff;
+    font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+    width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  }
+
+  .burger{display:none;}
+  @media(max-width:920px){
+    .navlinks{display:none;}
+    .burger{display:block;font-size:22px;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:70px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center;
+  }
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:40px;}}
+
+  .hero h1{
+    font-size:clamp(34px,4.6vw,58px);
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--teal-dark);
+    background:linear-gradient(180deg,transparent 62%, var(--sw-mustard) 62%);
+  }
+  .hero p.lede{
+    font-size:18px;color:var(--ink-soft);max-width:46ch;margin-bottom:30px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px;}
+
+  .hero-trust{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--ink-soft);}
+  .stars{color:var(--sw-mustard);font-size:15px;letter-spacing:1px;}
+  .hero-trust b{color:var(--ink);font-family:'Space Mono',monospace;}
+
+  /* fan of swatches */
+  .fan{
+    position:relative;height:460px;
+  }
+  .swatch{
+    position:absolute;width:150px;height:220px;border-radius:3px;
+    box-shadow:var(--shadow-lg);
+    display:flex;flex-direction:column;justify-content:flex-end;padding:14px;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    cursor:default;
+  }
+  .swatch .code{font-family:'Space Mono',monospace;font-size:11px;opacity:.85;}
+  .swatch .name{font-family:'Fraunces',serif;font-weight:600;font-size:15px;}
+  .swatch:hover{transform:translateY(-10px) rotate(0deg) !important;z-index:20;}
+
+  .fan .s1{background:var(--sw-terracotta);color:#fff;top:10px;left:6%;transform:rotate(-14deg);z-index:1;}
+  .fan .s2{background:var(--sw-sage);color:#20291d;top:0;left:24%;transform:rotate(-6deg);z-index:2;}
+  .fan .s3{background:var(--sw-cream);color:#22201C;top:-6px;left:42%;transform:rotate(2deg);z-index:3;}
+  .fan .s4{background:var(--sw-dustyblue);color:#fff;top:0;left:60%;transform:rotate(10deg);z-index:2;}
+  .fan .s5{background:var(--sw-mustard);color:#2b2205;top:14px;left:77%;transform:rotate(17deg);z-index:1;}
+  @media(max-width:920px){
+    .fan{height:300px;}
+    .swatch{width:110px;height:160px;padding:10px;}
+    .fan .s1{left:0;}
+    .fan .s5{left:auto;right:0;}
+  }
+  @media(max-width:520px){
+    .fan .s3{display:none;}
+  }
+
+  /* ============ TRUST STRIP ============ */
+  .trust-strip{
+    background:var(--ink);color:var(--paper);
+    padding:26px 0;
+  }
+  .trust-strip .wrap{
+    display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;
+  }
+  .trust-item{display:flex;align-items:center;gap:12px;min-width:180px;}
+  .trust-item .num{font-family:'Space Mono',monospace;font-size:22px;color:var(--sw-mustard);}
+  .trust-item .lbl{font-size:12.5px;color:#C9C4B6;line-height:1.3;}
+
+  /* ============ SECTION HEADERS ============ */
+  .section{padding:96px 0;}
+  .section-tight{padding:70px 0;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,42px);margin-top:14px;}
+  .section-head p{color:var(--ink-soft);margin-top:14px;font-size:16.5px;}
+  .on-dark .section-head p{color:#C9C4B6;}
+
+  /* ============ SHOP ============ */
+  .shop-nav{
+    display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;
+    border-bottom:1px solid var(--line);padding-bottom:24px;
+  }
+  .chip-filter{
+    padding:9px 18px;border:1.5px solid var(--line);border-radius:30px;
+    font-size:13.5px;font-weight:500;background:var(--white);
+    display:flex;align-items:center;gap:8px;transition:all .2s ease;
+  }
+  .chip-filter .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .chip-filter:hover{border-color:var(--ink);}
+  .chip-filter.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  .product-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;
+  }
+  .card{
+    background:var(--white);border:1px solid var(--line);border-radius:2px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+  .card .swatch-top{height:110px;position:relative;}
+  .card .swatch-top .code-tag{
+    position:absolute;bottom:8px;left:10px;font-family:'Space Mono',monospace;
+    font-size:10.5px;padding:3px 7px;background:rgba(255,255,255,0.85);border-radius:2px;
+    color:var(--ink);
+  }
+  .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .card-body .cat{font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;}
+  .card-body h3{font-family:'Jost',sans-serif;font-weight:600;font-size:15.5px;line-height:1.3;}
+  .card-body .size{font-size:13px;color:var(--ink-soft);}
+  .card-foot{
+    margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+    padding-top:10px;border-top:1px dashed var(--line);
+  }
+  .price{font-family:'Space Mono',monospace;font-size:14.5px;}
+  .price small{font-size:10.5px;color:var(--ink-soft);display:block;font-family:'Jost',sans-serif;}
+  .add-btn{
+    width:34px;height:34px;border-radius:50%;border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+    transition:all .2s ease;
+  }
+  .add-btn:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+  .add-btn.added{background:var(--teal-dark);border-color:var(--teal-dark);color:#fff;}
+
+  /* ============ COLOR MATCH ============ */
+  .match-section{background:var(--ink);color:var(--paper);position:relative;overflow:hidden;}
+  .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media(max-width:920px){.match-grid{grid-template-columns:1fr;}}
+  .match-visual{
+    position:relative;height:340px;display:flex;align-items:center;justify-content:center;
+  }
+  .blob{
+    position:absolute;width:220px;height:220px;border-radius:50%;
+    mix-blend-mode:screen;filter:blur(2px);
+    animation:float 8s ease-in-out infinite;
+  }
+  .blob.b1{background:var(--sw-dustyblue);left:8%;top:10%;}
+  .blob.b2{background:var(--sw-mustard);right:10%;top:0;animation-delay:1.2s;}
+  .blob.b3{background:var(--sw-rust);left:30%;bottom:0;animation-delay:2.4s;}
+  @keyframes float{
+    0%,100%{transform:translateY(0px) scale(1);}
+    50%{transform:translateY(-18px) scale(1.04);}
+  }
+  .steps{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:22px;}
+  .steps li{display:flex;gap:16px;align-items:flex-start;}
+  .steps .step-mark{
+    font-family:'Space Mono',monospace;font-size:12px;color:var(--sw-mustard);
+    border:1px solid rgba(255,255,255,0.3);border-radius:50%;width:30px;height:30px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .steps h4{font-family:'Jost',sans-serif;font-size:16px;font-weight:600;margin-bottom:4px;}
+  .steps p{color:#C9C4B6;font-size:14.5px;}
+
+  /* ============ WHY US ============ */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:920px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-item{background:var(--paper);padding:34px 28px;}
+  .why-item .swatchlet{width:34px;height:34px;border-radius:50%;margin-bottom:18px;}
+  .why-item h3{font-family:'Jost',sans-serif;font-size:17px;font-weight:600;margin-bottom:10px;}
+  .why-item p{font-size:14px;color:var(--ink-soft);}
+
+  /* ============ TESTIMONIALS ============ */
+  .testi-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  @media(max-width:920px){.testi-row{grid-template-columns:1fr;}}
+  .testi{
+    background:var(--white);border:1px solid var(--line);padding:28px;position:relative;
+  }
+  .testi .stars{margin-bottom:14px;display:block;}
+  .testi p{font-size:15.5px;font-style:italic;color:var(--ink);margin-bottom:16px;}
+  .testi .who{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+  /* ============ LOCATION ============ */
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);}
+  @media(max-width:820px){.loc-grid{grid-template-columns:1fr;}}
+  .loc-map{min-height:420px;background:var(--paper-2);}
+  .loc-map iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(0.25) contrast(1.05);}
+  .loc-info{padding:44px;background:var(--white);}
+  .loc-info h3{font-size:24px;margin-bottom:22px;}
+  .loc-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+  .loc-row:last-of-type{border-bottom:none;}
+  .loc-row .ico{font-size:17px;width:22px;flex-shrink:0;}
+  .loc-row .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:2px;}
+  .hours-table{width:100%;font-size:14px;margin-top:4px;}
+  .hours-table tr td{padding:2px 0;}
+  .hours-table td:last-child{text-align:right;font-family:'Space Mono',monospace;font-size:13px;}
+  .hours-table tr.today td{color:var(--teal-dark);font-weight:700;}
+  .status-badge{
+    display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+    padding:6px 12px;border-radius:20px;margin-bottom:20px;
+  }
+  .status-badge.open{background:#E4EEEC;color:var(--teal-dark);}
+  .status-badge.closed{background:#F4E4E0;color:#A8471F;}
+  .status-badge .pulse{width:8px;height:8px;border-radius:50%;background:currentColor;}
+  .status-badge.open .pulse{animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,111,107,0.5);}70%{box-shadow:0 0 0 8px rgba(31,111,107,0);}100%{box-shadow:0 0 0 0 rgba(31,111,107,0);}}
+
+  /* ============ CTA STRIP ============ */
+  .cta-strip{
+    background:var(--teal);color:#fff;padding:60px 0;text-align:center;
+  }
+  .cta-strip h2{font-size:clamp(24px,3vw,36px);margin-bottom:10px;}
+  .cta-strip p{color:#DCEAE8;margin-bottom:26px;}
+  .cta-strip .btn-outline{border-color:#fff;color:#fff;}
+  .cta-strip .btn-outline:hover{background:#fff;color:var(--teal-dark);}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--ink);color:#C9C4B6;padding:64px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+  @media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.foot-grid{grid-template-columns:1fr;}}
+  footer h4{color:var(--paper);font-family:'Jost',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;}
+  footer .foot-brand{font-family:'Fraunces',serif;color:var(--paper);font-size:22px;font-weight:700;margin-bottom:12px;}
+  footer p, footer li{font-size:14px;line-height:2;}
+  footer a:hover{color:var(--paper);}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.12);padding-top:22px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#8B8578;
+  }
+  .demo-note{
+    background:#2C2A25;border:1px solid rgba(255,255,255,0.1);padding:16px 20px;border-radius:2px;
+    font-size:12.5px;color:#9A9484;margin-top:26px;line-height:1.7;
+  }
+  .demo-note b{color:#C9C4B6;}
+
+  /* ============ CART DRAWER ============ */
+  .overlay{
+    position:fixed;inset:0;background:rgba(34,32,28,0.5);z-index:900;
+    opacity:0;pointer-events:none;transition:opacity .3s ease;
+  }
+  .overlay.show{opacity:1;pointer-events:auto;}
+  .cart-drawer{
+    position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;
+    background:var(--paper);z-index:901;box-shadow:var(--shadow-lg);
+    transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);
+    display:flex;flex-direction:column;
+  }
+  .cart-drawer.show{transform:translateX(0);}
+  .cart-head{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .cart-head h3{font-size:19px;}
+  .cart-close{font-size:22px;}
+  .cart-items{flex:1;overflow-y:auto;padding:18px 24px;display:flex;flex-direction:column;gap:16px;}
+  .cart-empty{color:var(--ink-soft);font-size:14px;text-align:center;padding:60px 0;}
+  .cart-item{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;}
+  .cart-item .sw{width:44px;height:44px;border-radius:2px;flex-shrink:0;}
+  .cart-item .info{flex:1;}
+  .cart-item .info .nm{font-size:13.5px;font-weight:600;}
+  .cart-item .info .pr{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft);}
+  .qty-ctrl{display:flex;align-items:center;gap:8px;}
+  .qty-ctrl button{width:22px;height:22px;border:1px solid var(--line);border-radius:50%;font-size:13px;}
+  .qty-ctrl span{font-family:'Space Mono',monospace;font-size:13px;min-width:16px;text-align:center;}
+  .cart-remove{color:var(--sw-rust);font-size:11px;text-decoration:underline;margin-left:8px;}
+  .cart-foot{padding:20px 24px 26px;border-top:1px solid var(--line);}
+  .cart-total{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:15px;margin-bottom:6px;}
+  .cart-note{font-size:11.5px;color:var(--ink-soft);margin-bottom:16px;line-height:1.5;}
+  .cart-foot .btn{width:100%;justify-content:center;}
+
+  /* toast */
+  .toast{
+    position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:var(--paper);padding:12px 22px;border-radius:30px;
+    font-size:13.5px;z-index:1000;opacity:0;pointer-events:none;transition:all .3s ease;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .floating-cart{
+    position:fixed;bottom:24px;right:24px;z-index:400;
+    background:var(--ink);color:var(--paper);border-radius:40px;
+    padding:14px 22px;display:flex;align-items:center;gap:10px;
+    box-shadow:var(--shadow-lg);font-size:13.5px;font-weight:600;
+    transition:transform .2s ease;
+  }
+  .floating-cart:hover{transform:translateY(-2px);}
+  .floating-cart .badge{
+    background:var(--sw-mustard);color:#2b2205;width:20px;height:20px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;
+  }
+
+  [data-hu]{display:none;}
+  html[data-lang="hu"] [data-sk]{display:none;}
+  html[data-lang="hu"] [data-hu]{display:inline;}
+  html[data-lang="hu"] span[data-hu],
+  html[data-lang="hu"] div[data-hu],
+  html[data-lang="hu"] p[data-hu],
+  html[data-lang="hu"] li[data-hu],
+  html[data-lang="hu"] h1[data-hu],
+  html[data-lang="hu"] h2[data-hu],
+  html[data-lang="hu"] h3[data-hu],
+  html[data-lang="hu"] h4[data-hu]{display:block;}
+  html[data-lang="hu"] .inline-hu{display:inline;}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site">
+  <div class="nav">
+    <a href="#top" class="brand">
+      <span class="chip-stack" aria-hidden="true">
+        <span style="background:var(--sw-terracotta);transform:rotate(-8deg);"></span>
+        <span style="background:var(--sw-dustyblue);transform:rotate(4deg);"></span>
+        <span style="background:var(--sw-mustard);transform:rotate(-2deg);"></span>
+      </span>
+      Kolorcentrum
+    </a>
+    <nav class="navlinks">
+      <a href="#ponuka" data-sk>Ponuka</a><a href="#ponuka" data-hu>Termékek</a>
+      <a href="#miesanie" data-sk>Miešanie farieb</a><a href="#miesanie" data-hu>Színkeverés</a>
+      <a href="#preco-my" data-sk>Prečo my</a><a href="#preco-my" data-hu>Miért mi</a>
+      <a href="#recenzie" data-sk>Recenzie</a><a href="#recenzie" data-hu>Vélemények</a>
+      <a href="#kontakt" data-sk>Kontakt</a><a href="#kontakt" data-hu>Kapcsolat</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="btn-sk" class="active">SK</button>
+        <button id="btn-hu">HU</button>
+      </div>
+      <button class="cart-btn" id="cartOpenBtn" aria-label="Cart">
+        🛒<span class="cart-count" id="cartCountNav">0</span>
+      </button>
+      <a href="tel:+421908782311" class="btn btn-primary" style="padding:10px 18px;">
+        <span data-sk>Zavolať</span><span data-hu>Hívás</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow"><span data-sk>Farby · Laky · Maliarske potreby · Komárno</span><span data-hu>Festékek · Lakkok · Festő szaküzlet · Komárom</span></p>
+      <h1 class="reveal">
+        <span data-sk>Nájdite presne ten <em>odtieň</em>, ktorý máte v hlave.</span>
+        <span data-hu>Találja meg pontosan azt a <em>színárnyalatot</em>, amit elképzelt.</span>
+      </h1>
+      <p class="lede reveal" data-sk>Kolorcentrum mieša presné odtiene na počkanie a má na sklade všetko od interiérových farieb po náradie a tapety — jedna zastávka pre celú rekonštrukciu.</p>
+      <p class="lede reveal" data-hu>A Kolorcentrum azonnal kikeveri a pontos árnyalatot, és mindent kínál a beltéri festékektől a szerszámokig és tapétákig — egy megálló a teljes felújításhoz.</p>
+      <div class="hero-actions reveal">
+        <a href="#ponuka" class="btn btn-primary"><span data-sk>Prezrieť ponuku</span><span data-hu>Termékek böngészése</span></a>
+        <a href="#miesanie" class="btn btn-outline"><span data-sk>Namiešať odtieň</span><span data-hu>Szín kikeverése</span></a>
+      </div>
+      <div class="hero-trust reveal">
+        <span class="stars">★★★★★</span>
+        <span><b>4.6</b> <span data-sk>· 173 Google recenzií</span><span data-hu>· 173 Google vélemény</span></span>
+      </div>
+    </div>
+    <div class="fan" aria-hidden="true">
+      <div class="swatch s1"><span class="name">Terakota</span><span class="code">#C1673D</span></div>
+      <div class="swatch s2"><span class="name">Šalvia</span><span class="code">#8A9A7E</span></div>
+      <div class="swatch s3"><span class="name">Slonovina</span><span class="code">#EDE3CF</span></div>
+      <div class="swatch s4"><span class="name">Prašná modrá</span><span class="code">#6C8CA8</span></div>
+      <div class="swatch s5"><span class="name">Horčicová</span><span class="code">#D9A441</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust-strip">
+  <div class="wrap">
+    <div class="trust-item"><span class="num">4.6★</span><span class="lbl" data-sk>hodnotenie<br>zo 173 Google recenzií</span><span class="lbl" data-hu>értékelés<br>173 Google véleményből</span></div>
+    <div class="trust-item"><span class="num">8+</span><span class="lbl" data-sk>kategórií tovaru<br>skladom</span><span class="lbl" data-hu>termékkategória<br>raktáron</span></div>
+    <div class="trust-item"><span class="num">1:1</span><span class="lbl" data-sk>miešanie odtieňa<br>podľa vzorky</span><span class="lbl" data-hu>színkeverés<br>minta alapján</span></div>
+    <div class="trust-item"><span class="num">P</span><span class="lbl" data-sk>parkovanie<br>priamo pri predajni</span><span class="lbl" data-hu>parkolás<br>közvetlenül az üzletnél</span></div>
+  </div>
+</div>
+
+<!-- ============ SHOP ============ -->
+<section class="section" id="ponuka">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-sk>Ponuka predajne</p>
+      <p class="eyebrow" data-hu>Üzleti kínálat</p>
+      <h2 data-sk>Vyberte kategóriu, pridajte do dopytu.</h2>
+      <h2 data-hu>Válasszon kategóriát, adja hozzá az igényléshez.</h2>
+      <p data-sk>Toto je online katalóg s možnosťou poslať objednávkový dopyt — presnú cenu a dostupnosť potvrdíme telefonicky alebo priamo na predajni, kde vám odtieň aj namiešame.</p>
+      <p data-hu>Ez egy online katalógus, amelyből megrendelési igényt küldhet — a pontos árat és elérhetőséget telefonon vagy az üzletben erősítjük meg, ahol a színt is kikeverjük.</p>
+    </div>
+
+    <div class="shop-nav reveal" id="shopFilters"></div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ============ COLOR MATCH ============ -->
+<section class="section match-section" id="miesanie">
+  <div class="wrap">
+    <div class="match-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--sw-mustard);"><span data-sk>Služba predajne</span><span data-hu>Üzleti szolgáltatás</span></p>
+        <h2 class="reveal" data-sk>Prineste vzorku. Odídete s presným odtieňom.</h2>
+        <h2 class="reveal" data-hu>Hozzon mintát. A pontos árnyalattal távozik.</h2>
+        <ul class="steps reveal">
+          <li>
+            <span class="step-mark">1</span>
+            <div>
+              <h4 data-sk>Prineste vzorku alebo fotku</h4>
+              <h4 data-hu>Hozzon mintát vagy fotót</h4>
+              <p data-sk>Kúsok látky, starý náter, kachličku či inšpiráciu z fotky — čokoľvek, čo má farbu, ktorú chcete.</p>
+              <p data-hu>Egy darab szövetet, régi festékréteget, csempét vagy egy fotó ihletet — bármit, ami a kívánt színt hordozza.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-mark">2</span>
+            <div>
+              <h4 data-sk>Namiešame na počkanie</h4>
+              <h4 data-hu>Azonnal kikeverjük</h4>
+              <p data-sk>Odtieň namiešame podľa vzorkovníka priamo na predajni, presne do požadovaného typu farby.</p>
+              <p data-hu>Az árnyalatot mintakártya alapján, közvetlenül az üzletben keverjük ki, pontosan a kívánt festéktípusba.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-mark">3</span>
+            <div>
+              <h4 data-sk>Poradíme s aplikáciou</h4>
+              <h4 data-hu>Tanácsot adunk a felviteléhez</h4>
+              <p data-sk>Odporučíme aj vhodný náter, valček či počet vrstiev podľa povrchu, na ktorý farbu nanášate.</p>
+              <p data-hu>Javasoljuk a megfelelő alapozót, hengert és rétegszámot is a felület típusától függően.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="tel:+421908782311" class="btn btn-primary" style="margin-top:30px;background:var(--sw-mustard);color:#2b2205;">
+          <span data-sk>Zavolať a spýtať sa</span><span data-hu>Hívjon és kérdezzen</span>
+        </a>
+      </div>
+      <div class="match-visual reveal" aria-hidden="true">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section-tight" id="preco-my">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-sk>Prečo Kolorcentrum</p>
+      <p class="eyebrow" data-hu>Miért a Kolorcentrum</p>
+      <h2 data-sk>Jeden obchod, celý projekt vybavený.</h2>
+      <h2 data-hu>Egy üzlet, a teljes projekt elintézve.</h2>
+    </div>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-item">
+      <div class="swatchlet" style="background:var(--sw-terracotta);"></div>
+      <h3 data-sk>Odborné poradenstvo</h3>
+      <h3 data-hu>Szakértői tanácsadás</h3>
+      <p data-sk>Personál poradí s výberom náteru, techniky aj postupu — zákazníci to opakovane vyzdvihujú v recenziách.</p>
+      <p data-hu>A személyzet segít a festék, a technika és a folyamat kiválasztásában — ezt a vásárlók visszatérően kiemelik.</p>
+    </div>
+    <div class="why-item">
+      <div class="swatchlet" style="background:var(--sw-dustyblue);"></div>
+      <h3 data-sk>Široký sortiment</h3>
+      <h3 data-hu>Széles választék</h3>
+      <p data-sk>Interiérové a fasádne farby, laky, omietky, tapety, náradie aj drogéria — nielen farby, ale celá rekonštrukcia.</p>
+      <p data-hu>Beltéri és homlokzati festékek, lakkok, vakolatok, tapéták, szerszámok és drogéria — nem csak festék, hanem a teljes felújítás.</p>
+    </div>
+    <div class="why-item">
+      <div class="swatchlet" style="background:var(--sw-sage);"></div>
+      <h3 data-sk>Presné miešanie</h3>
+      <h3 data-hu>Pontos színkeverés</h3>
+      <p data-sk>Odtiene namiešame strojovo podľa vzorkovníka priamo na predajni, presne podľa vašej predstavy.</p>
+      <p data-hu>Az árnyalatokat géppel, mintakártya alapján, közvetlenül az üzletben keverjük ki, pontosan az Ön elképzelése szerint.</p>
+    </div>
+    <div class="why-item">
+      <div class="swatchlet" style="background:var(--sw-mustard);"></div>
+      <h3 data-sk>Pohodlný nákup</h3>
+      <h3 data-hu>Kényelmes vásárlás</h3>
+      <p data-sk>Predajňa v Komárne s parkovaním priamo pri vchode — bez hľadania miesta, bez stresu.</p>
+      <p data-hu>Üzlet Komáromban, parkolással közvetlenül a bejáratnál — helykeresés és stressz nélkül.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section" id="recenzie">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-sk>Čo hovoria zákazníci</p>
+      <p class="eyebrow" data-hu>Mit mondanak a vásárlók</p>
+      <h2 data-sk>173 recenzií, priemer 4.6 z 5.</h2>
+      <h2 data-hu>173 vélemény, átlagosan 4,6 az 5-ből.</h2>
+    </div>
+    <div class="testi-row reveal">
+      <div class="testi">
+        <span class="stars">★★★★★</span>
+        <p data-sk>„Príjemný a profesionálny prístup, dobré ceny. Rada tu nakupujem.“</p>
+        <p data-hu>„Kellemes és profi hozzáállás, jó árak. Szívesen vásárolok itt.“</p>
+        <span class="who mono">— Google, <span data-sk>overená recenzia</span><span data-hu>ellenőrzött vélemény</span></span>
+      </div>
+      <div class="testi">
+        <span class="stars">★★★★★</span>
+        <p data-sk>„Dobrý výber farieb aj dekoratívnych materiálov, poradia so všetkým.“</p>
+        <p data-hu>„Jó választék festékekből és dekorációs anyagokból, mindenben segítenek.“</p>
+        <span class="who mono">— Google, <span data-sk>overená recenzia</span><span data-hu>ellenőrzött vélemény</span></span>
+      </div>
+      <div class="testi">
+        <span class="stars">★★★★★</span>
+        <p data-sk>„Veľký výber tovaru, poradia aj namiešajú presný odtieň — ceny sú prijateľné.“</p>
+        <p data-hu>„Nagy választék, tanácsot adnak, kikeverik a pontos árnyalatot — az árak elfogadhatóak.“</p>
+        <span class="who mono">— Google, <span data-sk>overená recenzia</span><span data-hu>ellenőrzött vélemény</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATION ============ -->
+<section class="section-tight" id="kontakt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-sk>Navštívte nás</p>
+      <p class="eyebrow" data-hu>Látogasson el hozzánk</p>
+      <h2 data-sk>Priateľstva 3452, Komárno.</h2>
+      <h2 data-hu>Priateľstva 3452, Komárom.</h2>
+    </div>
+    <div class="loc-grid reveal">
+      <div class="loc-map">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Kolorcentrum,+Priate%C4%BEstva+3452,+Kom%C3%A1rno&output=embed"
+          title="Mapa Kolorcentrum Komárno"></iframe>
+      </div>
+      <div class="loc-info">
+        <span class="status-badge" id="statusBadge">
+          <span class="pulse"></span><span id="statusText">—</span>
+        </span>
+        <h3 data-sk>Kontaktné údaje</h3>
+        <h3 data-hu>Elérhetőségek</h3>
+
+        <div class="loc-row">
+          <span class="ico">📍</span>
+          <div>
+            <div class="lbl" data-sk>Adresa</div>
+            <div class="lbl" data-hu>Cím</div>
+            <div>Priateľstva 3452, Komárno, 945 01</div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <span class="ico">📞</span>
+          <div>
+            <div class="lbl" data-sk>Telefón</div>
+            <div class="lbl" data-hu>Telefon</div>
+            <div><a href="tel:+421908782311" class="mono">0908 782 311</a></div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <span class="ico">🕐</span>
+          <div style="width:100%;">
+            <div class="lbl" data-sk>Otváracie hodiny</div>
+            <div class="lbl" data-hu>Nyitvatartás</div>
+            <table class="hours-table" id="hoursTable"></table>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Kolorcentrum+Priate%C4%BEstva+3452+Kom%C3%A1rno" target="_blank" rel="noopener">
+            <span data-sk>Navigovať</span><span data-hu>Útvonaltervezés</span>
+          </a>
+          <a class="btn btn-outline" href="https://wa.me/421908782311" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA STRIP ============ -->
+<div class="cta-strip">
+  <div class="wrap">
+    <h2 data-sk>Máte projekt? Poradíme, čo presne potrebujete.</h2>
+    <h2 data-hu>Van egy projektje? Megmondjuk, pontosan mire van szüksége.</h2>
+    <p data-sk>Zavolajte alebo príďte na predajňu — bez záväzkov.</p>
+    <p data-hu>Hívjon, vagy jöjjön be az üzletbe — kötelezettség nélkül.</p>
+    <a href="tel:+421908782311" class="btn btn-outline"><span data-sk>0908 782 311</span><span data-hu>0908 782 311</span></a>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Kolorcentrum</div>
+        <p data-sk>Farby, laky a maliarske potreby v Komárne. Poradíme, namiešame, vybavíme.</p>
+        <p data-hu>Festékek, lakkok és festő szaküzlet Komáromban. Tanácsot adunk, kikeverjük, elintézzük.</p>
+      </div>
+      <div>
+        <h4 data-sk>Predajňa</h4>
+        <h4 data-hu>Üzlet</h4>
+        <ul>
+          <li><a href="#ponuka" data-sk>Ponuka</a><a href="#ponuka" data-hu>Termékek</a></li>
+          <li><a href="#miesanie" data-sk>Miešanie farieb</a><a href="#miesanie" data-hu>Színkeverés</a></li>
+          <li><a href="#preco-my" data-sk>Prečo my</a><a href="#preco-my" data-hu>Miért mi</a></li>
+          <li><a href="#recenzie" data-sk>Recenzie</a><a href="#recenzie" data-hu>Vélemények</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-sk>Kontakt</h4>
+        <h4 data-hu>Kapcsolat</h4>
+        <ul>
+          <li>Priateľstva 3452, Komárno</li>
+          <li><a href="tel:+421908782311">0908 782 311</a></li>
+          <li><a href="https://wa.me/421908782311" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-sk>Otváracie hodiny</h4>
+        <h4 data-hu>Nyitvatartás</h4>
+        <ul>
+          <li><span data-sk>Po–Pi</span><span data-hu>H–P</span> 7:30–17:00</li>
+          <li><span data-sk>Sobota</span><span data-hu>Szombat</span> 8:00–12:00</li>
+          <li><span data-sk>Nedeľa</span><span data-hu>Vasárnap</span> <span data-sk>zatvorené</span><span data-hu>zárva</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="demo-note">
+      <span data-sk><b>Poznámka:</b> Toto je nezáväzný konceptuálny návrh webu vytvorený štúdiom DM Web, nie oficiálna stránka Kolorcentra. Vytvorili sme ho ako ukážku toho, ako by mohla vyzerať online prítomnosť predajne. Ceny produktov sú orientačné.</span>
+      <span data-hu><b>Megjegyzés:</b> Ez egy nem kötelező érvényű koncepcionális weboldal-terv, amelyet a DM Web stúdió készített, nem a Kolorcentrum hivatalos oldala. Bemutatóként készült arról, hogyan nézhetne ki az üzlet online jelenléte. A termékárak tájékoztató jellegűek.</span>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Kolorcentrum · Komárno</span>
+      <span data-sk>Koncept od DM Web</span><span data-hu>Koncepció: DM Web</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Cart">
+  <div class="cart-head">
+    <h3><span data-sk>Váš dopyt</span><span data-hu>Az Ön igénylése</span></h3>
+    <button class="cart-close" id="cartCloseBtn" aria-label="Close">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span data-sk>Odhadovaný súčet</span><span data-hu>Becsült összeg</span><span id="cartTotal">0 €</span></div>
+    <p class="cart-note" data-sk>Toto nie je platba. Odošleme dopyt cez WhatsApp / telefón, predajňa potvrdí presnú cenu, dostupnosť a možnosť vyzdvihnutia.</p>
+    <p class="cart-note" data-hu>Ez nem fizetés. Az igénylést WhatsApp-on / telefonon küldjük el, az üzlet visszaigazolja a pontos árat, elérhetőséget és az átvétel lehetőségét.</p>
+    <button class="btn btn-primary" id="sendOrderBtn">
+      <span data-sk>Odoslať dopyt cez WhatsApp</span><span data-hu>Igénylés küldése WhatsApp-on</span>
+    </button>
+  </div>
+</aside>
+
+<button class="floating-cart" id="floatingCart">
+  <span>🛒</span>
+  <span data-sk>Dopyt</span><span data-hu>Igénylés</span>
+  <span class="badge" id="cartCountFloat">0</span>
+</button>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+const PRODUCTS = [
+  // Interiérové farby
+  {id:'p1',cat:'interier',name_sk:'Prémiová interiérová farba, biela',name_hu:'Prémium beltéri festék, fehér',size:'15 l',price:52,color:'#F4EFE4'},
+  {id:'p2',cat:'interier',name_sk:'Umývateľná farba do kuchyne a kúpeľne',name_hu:'Mosható festék konyhába és fürdőbe',size:'10 l',price:46,color:'#DCE3DE'},
+  {id:'p3',cat:'interier',name_sk:'Interiérová farba na mieru — vlastný odtieň',name_hu:'Beltéri festék egyedi árnyalatra keverve',size:'5 l',price:34,color:'#C1673D'},
+
+  // Fasádne farby
+  {id:'p4',cat:'fasada',name_sk:'Fasádna farba, odolná voči poveternosti',name_hu:'Homlokzati festék, időjárásálló',size:'15 l',price:68,color:'#B7AC98'},
+  {id:'p5',cat:'fasada',name_sk:'Silikónová fasádna farba proti riasam',name_hu:'Szilikon homlokzati festék, alga ellen',size:'15 l',price:79,color:'#EDE3CF'},
+  {id:'p6',cat:'fasada',name_sk:'Farba na sokel budovy',name_hu:'Lábazatfesték',size:'5 l',price:29,color:'#3B3A36'},
+
+  // Nátery na drevo a kov
+  {id:'p7',cat:'drevokov',name_sk:'Základná antikorózna farba na kov',name_hu:'Korrózióvédő alapozó fémre',size:'2,5 l',price:19,color:'#A8471F'},
+  {id:'p8',cat:'drevokov',name_sk:'Lazúra na drevo, exteriér',name_hu:'Favédő lazúr, kültéri',size:'2,5 l',price:22,color:'#8A5A34'},
+  {id:'p9',cat:'drevokov',name_sk:'Syntetická vrchná farba na kov a drevo',name_hu:'Szintetikus fedőfesték fémre és fára',size:'0,75 l',price:9,color:'#6C8CA8'},
+
+  // Omietky a stierky
+  {id:'p10',cat:'omietky',name_sk:'Silikátová fasádna omietka, zrnitá',name_hu:'Szilikát homlokzati vakolat, szemcsés',size:'25 kg',price:38,color:'#D8CDB6'},
+  {id:'p11',cat:'omietky',name_sk:'Vnútorná štuková stierka',name_hu:'Beltéri stukkó simítóvakolat',size:'25 kg',price:18,color:'#EDE7D8'},
+  {id:'p12',cat:'omietky',name_sk:'Penetračný náter pod omietku',name_hu:'Alapozó vakolat alá',size:'10 l',price:14,color:'#C9C4B0'},
+
+  // Tapety
+  {id:'p13',cat:'tapety',name_sk:'Vliesová tapeta, jednofarebná',name_hu:'Vlies tapéta, egyszínű',size:'10,05 m²',price:24,color:'#8A9A7E'},
+  {id:'p14',cat:'tapety',name_sk:'Vliesová tapeta, dekoratívny vzor',name_hu:'Vlies tapéta, dekoratív mintás',size:'10,05 m²',price:31,color:'#D6A79E'},
+  {id:'p15',cat:'tapety',name_sk:'Lepidlo na vliesové tapety',name_hu:'Ragasztó vlies tapétához',size:'5 kg',price:11,color:'#EDE3CF'},
+
+  // Náradie
+  {id:'p16',cat:'naradie',name_sk:'Sada valčekov a štetcov',name_hu:'Henger és ecset készlet',size:'6 ks',price:13,color:'#6C4B5E'},
+  {id:'p17',cat:'naradie',name_sk:'Maliarska páska a ochranná fólia',name_hu:'Festőszalag és védőfólia',size:'set',price:7,color:'#D9A441'},
+  {id:'p18',cat:'naradie',name_sk:'Miešacia lopatka na farbu',name_hu:'Festékkeverő lapát',size:'1 ks',price:4,color:'#3B3A36'},
+
+  // Drogéria
+  {id:'p19',cat:'drogeria',name_sk:'Odmasťovací a čistiaci prostriedok',name_hu:'Zsírtalanító és tisztítószer',size:'1 l',price:6,color:'#6C8CA8'},
+  {id:'p20',cat:'drogeria',name_sk:'Riedidlo / rozpúšťadlo',name_hu:'Hígító / oldószer',size:'1 l',price:5,color:'#B7AC98'},
+  {id:'p21',cat:'drogeria',name_sk:'Ochranné rukavice a respirátor',name_hu:'Védőkesztyű és légzésvédő',size:'set',price:8,color:'#4B6B4E'},
+];
+
+const CATS = [
+  {id:'all',sk:'Všetko',hu:'Összes',dot:'#22201C'},
+  {id:'interier',sk:'Interiérové farby',hu:'Beltéri festékek',dot:'#C1673D'},
+  {id:'fasada',sk:'Fasádne farby',hu:'Homlokzati festékek',dot:'#B7AC98'},
+  {id:'drevokov',sk:'Nátery drevo/kov',hu:'Fa- és fémfestékek',dot:'#A8471F'},
+  {id:'omietky',sk:'Omietky',hu:'Vakolatok',dot:'#D8CDB6'},
+  {id:'tapety',sk:'Tapety',hu:'Tapéták',dot:'#8A9A7E'},
+  {id:'naradie',sk:'Náradie',hu:'Szerszámok',dot:'#6C4B5E'},
+  {id:'drogeria',sk:'Drogéria',hu:'Drogéria',dot:'#6C8CA8'},
+];
+
+const CAT_LABEL = {};
+CATS.forEach(c => CAT_LABEL[c.id] = {sk:c.sk,hu:c.hu});
+
+let lang = localStorage.getItem('kc_lang') || 'sk';
+let activeCat = 'all';
+let cart = JSON.parse(localStorage.getItem('kc_cart') || '{}');
+
+/* ================= LANG ================= */
+function setLang(l){
+  lang = l;
+  document.documentElement.setAttribute('data-lang', l);
+  localStorage.setItem('kc_lang', l);
+  document.getElementById('btn-sk').classList.toggle('active', l==='sk');
+  document.getElementById('btn-hu').classList.toggle('active', l==='hu');
+  renderFilters();
+  renderGrid();
+  renderCart();
+  renderHours();
+}
+document.getElementById('btn-sk').addEventListener('click', ()=>setLang('sk'));
+document.getElementById('btn-hu').addEventListener('click', ()=>setLang('hu'));
+
+/* ================= SHOP RENDER ================= */
+function renderFilters(){
+  const el = document.getElementById('shopFilters');
+  el.innerHTML = CATS.map(c => `
+    <button class="chip-filter ${c.id===activeCat?'active':''}" data-cat="${c.id}">
+      <span class="dot" style="background:${c.dot}"></span>${lang==='sk'?c.sk:c.hu}
+    </button>`).join('');
+  el.querySelectorAll('.chip-filter').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ activeCat = btn.dataset.cat; renderFilters(); renderGrid(); });
+  });
+}
+
+function renderGrid(){
+  const el = document.getElementById('productGrid');
+  const list = activeCat==='all' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===activeCat);
+  el.innerHTML = list.map(p => `
+    <div class="card">
+      <div class="swatch-top" style="background:${p.color}">
+        <span class="code-tag mono">${p.id.toUpperCase()}</span>
+      </div>
+      <div class="card-body">
+        <span class="cat">${lang==='sk'?CAT_LABEL[p.cat].sk:CAT_LABEL[p.cat].hu}</span>
+        <h3>${lang==='sk'?p.name_sk:p.name_hu}</h3>
+        <span class="size">${p.size}</span>
+        <div class="card-foot">
+          <span class="price">${p.price} € <small>${lang==='sk'?'od / balenie':'-tól / csomag'}</small></span>
+          <button class="add-btn" data-id="${p.id}" aria-label="Add">+</button>
+        </div>
+      </div>
+    </div>`).join('');
+  el.querySelectorAll('.add-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      addToCart(btn.dataset.id);
+      btn.classList.add('added'); btn.textContent='✓';
+      setTimeout(()=>{btn.classList.remove('added'); btn.textContent='+';},900);
+    });
+  });
+}
+
+/* ================= CART ================= */
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1;
+  saveCart();
+  showToast(lang==='sk' ? 'Pridané do dopytu' : 'Hozzáadva az igényléshez');
+}
+function changeQty(id, delta){
+  if(!cart[id]) return;
+  cart[id] += delta;
+  if(cart[id]<=0) delete cart[id];
+  saveCart();
+}
+function removeFromCart(id){ delete cart[id]; saveCart(); }
+function saveCart(){
+  localStorage.setItem('kc_cart', JSON.stringify(cart));
+  renderCart();
+}
+function cartCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function cartTotal(){
+  return Object.entries(cart).reduce((sum,[id,qty])=>{
+    const p = PRODUCTS.find(x=>x.id===id);
+    return sum + (p? p.price*qty : 0);
+  },0);
+}
+function renderCart(){
+  document.getElementById('cartCountNav').textContent = cartCount();
+  document.getElementById('cartCountFloat').textContent = cartCount();
+  document.getElementById('cartTotal').textContent = cartTotal().toFixed(0) + ' €';
+
+  const el = document.getElementById('cartItems');
+  const ids = Object.keys(cart);
+  if(ids.length===0){
+    el.innerHTML = `<div class="cart-empty">${lang==='sk'?'Zatiaľ nič nemáte v dopyte. Pridajte produkty z ponuky.':'Még nincs semmi az igénylésben. Adjon hozzá termékeket a kínálatból.'}</div>`;
+    return;
+  }
+  el.innerHTML = ids.map(id=>{
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return '';
+    return `
+    <div class="cart-item">
+      <div class="sw" style="background:${p.color}"></div>
+      <div class="info">
+        <div class="nm">${lang==='sk'?p.name_sk:p.name_hu}</div>
+        <div class="pr">${p.price} € · ${p.size}</div>
+        <div class="qty-ctrl">
+          <button data-act="minus" data-id="${id}">−</button>
+          <span>${cart[id]}</span>
+          <button data-act="plus" data-id="${id}">+</button>
+          <button class="cart-remove" data-act="remove" data-id="${id}">${lang==='sk'?'odstrániť':'törlés'}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  el.querySelectorAll('button[data-act]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.dataset.id;
+      if(btn.dataset.act==='plus') changeQty(id,1);
+      if(btn.dataset.act==='minus') changeQty(id,-1);
+      if(btn.dataset.act==='remove') removeFromCart(id);
+    });
+  });
+}
+
+/* cart drawer open/close */
+const overlay = document.getElementById('overlay');
+const drawer = document.getElementById('cartDrawer');
+function openCart(){ overlay.classList.add('show'); drawer.classList.add('show'); }
+function closeCart(){ overlay.classList.remove('show'); drawer.classList.remove('show'); }
+document.getElementById('cartOpenBtn').addEventListener('click', openCart);
+document.getElementById('floatingCart').addEventListener('click', openCart);
+document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+overlay.addEventListener('click', closeCart);
+
+/* send order via WhatsApp */
+document.getElementById('sendOrderBtn').addEventListener('click', ()=>{
+  const ids = Object.keys(cart);
+  if(ids.length===0){
+    showToast(lang==='sk' ? 'Dopyt je prázdny' : 'Az igénylés üres');
+    return;
+  }
+  let lines = [lang==='sk' ? 'Dobrý deň, mám záujem o dopyt na tieto produkty z Kolorcentrum:' : 'Jó napot, érdeklődnék a Kolorcentrum alábbi termékei iránt:'];
+  ids.forEach(id=>{
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(p) lines.push(`• ${cart[id]}x ${lang==='sk'?p.name_sk:p.name_hu} (${p.size}) — cca ${p.price*cart[id]} €`);
+  });
+  lines.push(lang==='sk' ? `Odhadovaný súčet: ${cartTotal()} €. Prosím potvrďte dostupnosť a presnú cenu.` : `Becsült összeg: ${cartTotal()} €. Kérem erősítsék meg az elérhetőséget és a pontos árat.`);
+  const text = encodeURIComponent(lines.join('\n'));
+  window.open(`https://wa.me/421908782311?text=${text}`, '_blank');
+});
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* ================= HOURS / OPEN STATUS ================= */
+const HOURS = [
+  {day_sk:'Pondelok',day_hu:'Hétfő', open:7.5, close:17},
+  {day_sk:'Utorok',day_hu:'Kedd', open:7.5, close:17},
+  {day_sk:'Streda',day_hu:'Szerda', open:7.5, close:17},
+  {day_sk:'Štvrtok',day_hu:'Csütörtök', open:7.5, close:17},
+  {day_sk:'Piatok',day_hu:'Péntek', open:7.5, close:17},
+  {day_sk:'Sobota',day_hu:'Szombat', open:8, close:12},
+  {day_sk:'Nedeľa',day_hu:'Vasárnap', open:null, close:null},
+];
+function renderHours(){
+  const now = new Date();
+  const jsDay = now.getDay(); // 0 = Sun
+  const idx = jsDay===0 ? 6 : jsDay-1;
+  const table = document.getElementById('hoursTable');
+  table.innerHTML = HOURS.map((h,i)=>{
+    const label = lang==='sk' ? h.day_sk : h.day_hu;
+    const val = h.open===null ? (lang==='sk'?'zatvorené':'zárva') : `${fmt(h.open)} – ${fmt(h.close)}`;
+    return `<tr class="${i===idx?'today':''}"><td>${label}</td><td>${val}</td></tr>`;
+  }).join('');
+
+  const today = HOURS[idx];
+  const badge = document.getElementById('statusBadge');
+  const text = document.getElementById('statusText');
+  const nowH = now.getHours() + now.getMinutes()/60;
+  const isOpen = today.open!==null && nowH>=today.open && nowH<today.close;
+  badge.className = 'status-badge ' + (isOpen?'open':'closed');
+  if(isOpen){
+    const closesIn = today.close - nowH;
+    text.textContent = (lang==='sk' ? 'Otvorené teraz' : 'Most nyitva') + (closesIn<1 ? (lang==='sk' ? ' · zatvára čoskoro' : ' · hamarosan zár') : '');
+  } else {
+    text.textContent = lang==='sk' ? 'Momentálne zatvorené' : 'Jelenleg zárva';
+  }
+}
+function fmt(h){
+  const hh = Math.floor(h);
+  const mm = h%1===0 ? '00' : '30';
+  return `${hh}:${mm}`;
+}
+
+/* ================= REVEAL ON SCROLL ================= */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ================= INIT ================= */
+setLang(lang);
+</script>
+
+</body>
+</html>
